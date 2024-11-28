@@ -232,3 +232,115 @@ To improve GPT Pilot, we are tracking some events from which you can opt out at 
 🌟 As an open-source tool, it would mean the world to us if you starred the GPT-pilot repo 🌟
 
 💬 Join [the Discord server](https://discord.gg/HaqXugmxr9) to get in touch.
+
+# Detailed Instructions on How to Set Up and Use the Project
+
+## Setting Up the Project
+
+1. **Clone the Repository**: Clone the GPT Pilot repository to your local machine using the following command:
+   ```bash
+   git clone https://github.com/Pythagora-io/gpt-pilot.git
+   ```
+2. **Navigate to the Project Directory**: Change your current directory to the project directory:
+   ```bash
+   cd gpt-pilot
+   ```
+3. **Create a Virtual Environment**: Create a virtual environment to manage the project's dependencies:
+   ```bash
+   python3 -m venv venv
+   ```
+4. **Activate the Virtual Environment**: Activate the virtual environment:
+   - On macOS and Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+   - On Windows:
+     ```bash
+     venv\Scripts\activate
+     ```
+5. **Install Dependencies**: Install the required dependencies using pip:
+   ```bash
+   pip install -r requirements.txt
+   ```
+6. **Create Configuration File**: Copy the example configuration file to create your own configuration file:
+   ```bash
+   cp example-config.json config.json
+   ```
+7. **Set Up Configuration**: Open the `config.json` file and set your key and other settings:
+   - LLM Provider (`openai`, `anthropic`, or `groq`) key and endpoints (leave `null` for default)
+   - Your API key (if `null`, it will be read from the environment variables)
+   - Database settings: SQLite is used by default, PostgreSQL should also work
+   - Optionally update `fs.ignore_paths` to add files or folders that shouldn't be tracked by GPT Pilot in the workspace
+
+## Using the Project
+
+1. **Start GPT Pilot**: Run the following command to start GPT Pilot:
+   ```bash
+   python main.py
+   ```
+2. **Follow the Prompts**: Follow the prompts to enter the app name and description. GPT Pilot will guide you through the process of creating your app.
+
+## Examples of How to Use the Project in Different Scenarios
+
+### Example 1: Creating a New App
+
+1. **Start GPT Pilot**: Run the following command:
+   ```bash
+   python main.py
+   ```
+2. **Enter App Name and Description**: Follow the prompts to enter the app name and description. For example, you can create a simple to-do list app.
+
+### Example 2: Upgrading from GPT Pilot v0.1
+
+1. **Update the Repository**: Pull the latest changes from the repository:
+   ```bash
+   git pull
+   ```
+2. **Activate the Virtual Environment**: Activate the virtual environment:
+   - On macOS and Linux:
+     ```bash
+     source pilot-env/bin/activate
+     ```
+   - On Windows:
+     ```bash
+     pilot-env\Scripts\activate
+     ```
+3. **Install New Dependencies**: Install the new dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Import Existing Projects**: Run the following command to import your settings and existing projects:
+   ```bash
+   python main.py --import-v0 pilot/gpt-pilot
+   ```
+
+## Troubleshooting Common Issues
+
+### Issue 1: Virtual Environment Activation
+
+If you encounter issues activating the virtual environment, ensure that you have the correct permissions and that the virtual environment was created successfully. You can try recreating the virtual environment using the following commands:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### Issue 2: Dependency Installation
+
+If you encounter issues installing dependencies, ensure that you have an active internet connection and that you are using the correct version of Python. You can also try upgrading pip using the following command:
+```bash
+pip install --upgrade pip
+```
+
+### Issue 3: Configuration File
+
+If you encounter issues with the configuration file, ensure that you have copied the example configuration file correctly and that you have set the required keys and settings. You can also refer to the example configuration file for guidance.
+
+### Issue 4: Database Connection
+
+If you encounter issues connecting to the database, ensure that you have set the correct database settings in the `config.json` file. If you are using PostgreSQL, ensure that the `asyncpg` and `psycopg2` packages are installed and that the database server is running.
+
+### Issue 5: Running GPT Pilot
+
+If you encounter issues running GPT Pilot, ensure that you have followed all the setup steps correctly and that you have activated the virtual environment. You can also refer to the logs for more information on the error.
+
+For further assistance, you can join our [Discord server](https://discord.gg/HaqXugmxr9) and ask for help from the community.
