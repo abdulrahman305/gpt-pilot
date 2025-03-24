@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, Optional, Union
 from unicodedata import normalize
 from uuid import UUID, uuid4
 
-from sqlalchemy import and_, delete, inspect, select
+from sqlalchemy import and_, delete, inspect, select, text
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import Mapped, mapped_column, relationship, selectinload
 from sqlalchemy.sql import func
@@ -43,7 +43,7 @@ class Project(Base):
         if not isinstance(project_id, UUID):
             project_id = UUID(project_id)
 
-        result = await session.execute(select(Project).where(Project.id == project_id))
+        result = await session.execute(text(select(Project).where(Project.id == project_id)))
         return result.scalar_one_or_none()
 
     async def get_branch(self, name: Optional[str] = None) -> Optional["Branch"]:
@@ -63,7 +63,7 @@ class Project(Base):
         if name is None:
             name = Branch.DEFAULT
 
-        result = await session.execute(select(Branch).where(Branch.project_id == self.id, Branch.name == name))
+        result = await session.execute(text(select(Branch).where(Branch.project_id == self.id, Branch.name == name)))
         return result.scalar_one_or_none()
 
     @staticmethod
@@ -99,7 +99,7 @@ class Project(Base):
             .order_by(Project.name, Branch.name)
         )
 
-        results = await session.execute(query)
+        results = await session.execute(text(query))
         return results.scalars().all()
 
     @staticmethod
@@ -126,5 +126,5 @@ class Project(Base):
         :return: Number of rows deleted.
         """
 
-        result = await session.execute(delete(Project).where(Project.id == project_id))
+        result = await session.execute(text(delete(Project).where(Project.id == project_id)))
         return result.rowcount

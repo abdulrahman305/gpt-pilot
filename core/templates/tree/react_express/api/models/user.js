@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { randomUUID } from 'crypto';
 import isEmail from 'validator/lib/isEmail.js';
 
-import { generatePasswordHash, validatePassword, isPasswordHash } from '../utils/password.js';
+import {  validatePassword, isPasswordHash } from '../utils/password.js';
 
 const schema = new mongoose.Schema({
   email: {

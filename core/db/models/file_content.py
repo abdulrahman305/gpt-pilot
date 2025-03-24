@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 
-from sqlalchemy import delete, distinct, select
+from sqlalchemy import delete, distinct, select, text
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -36,7 +36,7 @@ class FileContent(Base):
         :param content: The file content as unicode string.
         :return: The file content object.
         """
-        result = await session.execute(select(FileContent).where(FileContent.id == hash))
+        result = await session.execute(text(select(FileContent).where(FileContent.id == hash)))
         fc = result.scalar_one_or_none()
         if fc is not None:
             return fc
@@ -55,4 +55,4 @@ class FileContent(Base):
         """
         from core.db.models import File
 
-        await session.execute(delete(FileContent).where(~FileContent.id.in_(select(distinct(File.content_id)))))
+        await session.execute(text(delete(FileContent).where(~FileContent.id.in_(select(distinct(File.content_id))))))

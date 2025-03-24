@@ -1,7 +1,7 @@
 from copy import deepcopy
 from typing import TYPE_CHECKING, Optional
 
-from sqlalchemy import delete, distinct, select
+from sqlalchemy import delete, distinct, select, text
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -67,5 +67,5 @@ class Specification(Base):
         from core.db.models import ProjectState
 
         await session.execute(
-            delete(Specification).where(~Specification.id.in_(select(distinct(ProjectState.specification_id))))
+            text(delete(Specification).where(~Specification.id.in_(select(distinct(ProjectState.specification_id)))))
         )

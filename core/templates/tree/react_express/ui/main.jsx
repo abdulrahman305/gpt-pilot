@@ -5,7 +5,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom"
 
-import './index.css'
 
 // Pages in the app
 import Home from './pages/Home.jsx'

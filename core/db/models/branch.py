@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import TYPE_CHECKING, Optional, Union
 from uuid import UUID, uuid4
 
-from sqlalchemy import ForeignKey, inspect, select
+from sqlalchemy import ForeignKey, inspect, select, text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.sql import func
 
@@ -46,7 +46,7 @@ class Branch(Base):
         if not isinstance(branch_id, UUID):
             branch_id = UUID(branch_id)
 
-        result = await session.execute(select(Branch).where(Branch.id == branch_id))
+        result = await session.execute(text(select(Branch).where(Branch.id == branch_id)))
         return result.scalar_one_or_none()
 
     async def get_last_state(self) -> Optional["ProjectState"]:
@@ -63,10 +63,10 @@ class Branch(Base):
             raise ValueError("Branch instance not associated with a DB session.")
 
         result = await session.execute(
-            select(ProjectState)
+            text(select(ProjectState)
             .where(ProjectState.branch_id == self.id)
             .order_by(ProjectState.step_index.desc())
-            .limit(1)
+            .limit(1))
         )
         return result.scalar_one_or_none()
 
@@ -84,6 +84,6 @@ class Branch(Base):
             raise ValueError("Branch instance not associated with a DB session.")
 
         result = await session.execute(
-            select(ProjectState).where((ProjectState.branch_id == self.id) & (ProjectState.step_index == step_index))
+            text(select(ProjectState).where((ProjectState.branch_id == self.id) & (ProjectState.step_index == step_index)))
         )
         return result.scalar_one_or_none()

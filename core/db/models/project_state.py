@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import TYPE_CHECKING, Optional
 from uuid import UUID, uuid4
 
-from sqlalchemy import ForeignKey, UniqueConstraint, delete, inspect
+from sqlalchemy import ForeignKey, UniqueConstraint, delete, inspect, text
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.orm.attributes import flag_modified
@@ -403,10 +403,10 @@ class ProjectState(Base):
 
         log.debug(f"Deleting all project states in branch {self.branch_id} after {self.id}")
         await session.execute(
-            delete(ProjectState).where(
+            text(delete(ProjectState).where(
                 ProjectState.branch_id == self.branch_id,
                 ProjectState.step_index > self.step_index,
-            )
+            ))
         )
 
     def get_last_iteration_steps(self) -> list:
