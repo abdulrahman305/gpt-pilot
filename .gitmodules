@@ -1,0 +1,3 @@
+[submodule "gitauto"]
+	path = gitauto
+	url = https://github.com/abdulrahman305/gitauto.git
