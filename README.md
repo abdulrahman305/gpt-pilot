@@ -44,8 +44,6 @@
 
 ---
 
-<<<<<<< HEAD
-=======
 <div align="center">
 
 <a href="vscode:extension/PythagoraTechnologies.gpt-pilot-vs-code" target="_blank"><img src="https://github.com/Pythagora-io/gpt-pilot/assets/10895136/5792143e-77c7-47dd-ad96-6902be1501cd" alt="Pythagora-io%2Fgpt-pilot | Trendshift" style="width: 185px; height: 55px;" width="185" height="55"/></a>
@@ -95,12 +93,11 @@ If you are interested in our learnings during this project, you can check [our l
 - **Python 3.9+**
 
 # 🚦How to start using gpt-pilot?
-<<<<<<< HEAD
-=======
+
 👉 If you are using VS Code as your IDE, the easiest way to start is by downloading [GPT Pilot VS Code extension](https://marketplace.visualstudio.com/items?itemName=PythagoraTechnologies.pythagora-vs-code). 👈
 
 Otherwise, you can use the CLI tool.
->>>>>>> 26fb8580c1ed820f8b4646ab29f487a0fe3ebe17
+
 
 ### If you're new to GPT Pilot:
 
