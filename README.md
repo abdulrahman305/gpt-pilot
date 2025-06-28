@@ -204,11 +204,6 @@ Other than the research, GPT Pilot needs to be debugged to work in different sce
 ## 📊 Telemetry
 To improve GPT Pilot, we are tracking some events from which you can opt out at any time. You can read more about it [here](./docs/TELEMETRY.md).
 
-# 🔗 Connect with us  
-
-<<<<<<< HEAD
-💬 Join [the Discord server](https://discord.gg/HaqXugmxr9) to get in touch.
-
 # Detailed Instructions on How to Set Up and Use the Project
 
 ## Setting Up the Project
@@ -331,4 +326,3 @@ For further assistance, you can join our [Discord server](https://discord.gg/Haq
 - Explore our [Wiki](https://github.com/Pythagora-io/gpt-pilot/wiki) for in-depth documentation.  
 - Check out our [FAQ](https://github.com/Pythagora-io/gpt-pilot/wiki/Frequently-Asked-Questions) for common questions and troubleshooting tips.
 - Visit our [YouTube](https://www.youtube.com/@pythagoraa) channel for demos and how-to videos.
->>>>>>> 26fb8580c1ed820f8b4646ab29f487a0fe3ebe17
