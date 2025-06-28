@@ -54,12 +54,7 @@
 
 GPT Pilot is the core technology for the [Pythagora VS Code extension](https://marketplace.visualstudio.com/items?itemName=PythagoraTechnologies.pythagora-vs-code) that aims to provide **the first real AI developer companion**. Not just an autocomplete or a helper for PR messages but rather a real AI developer that can write full features, debug them, talk to you about issues, ask for review, etc.
 
----
 
->>>>>>> 26fb8580c1ed820f8b4646ab29f487a0fe3ebe17
-📫 If you would like to get updates on future releases or just get in touch, join our [Discord server](https://discord.gg/HaqXugmxr9) or you [can add your email here](http://eepurl.com/iD6Mpo). 📬
-
----
 
 <!-- TOC -->
 * [🔌 Requirements](#-requirements)
